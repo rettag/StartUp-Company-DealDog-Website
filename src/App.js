@@ -168,12 +168,26 @@ function App() {
         </div>
 
         <div className='scroll-images'>
-          <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          <div className='item'>
+            <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          </div>
+          <div className='item'>
+            <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          </div>
+          <div className='item'>
+            <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          </div>
+          <div className='item'>
+            <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          </div>
+          <div className='item'>
+            <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
+          </div>
         </div>
       </div>
 
       <div className='ready'>
-        <div className='ready-title'>Ready to sniff out a deal?</div>
+        <div className='ready-title dealdog-gradient-color'>Ready to sniff out a deal?</div>
         <div className='ready-desc'>Download the app for free today, available on the AppStore and the Play Store.</div>
         <div className='ready-apps'>
           <a href="#" className='ready-app'>
@@ -248,7 +262,7 @@ function App() {
         <div className='info-left'>
           <img className="info-logo" src={process.env.PUBLIC_URL + '/logo.png'} />
 
-          <div className="info-company-name">DealDog</div>
+          <div className="info-company-name dealdog-gradient-color">DealDog App</div>
 
           <div className="info-text">DealDog: Campus Marketplace Mobile App</div>
 
@@ -266,20 +280,20 @@ function App() {
 
         <div className='info-right'>
           <div className="column-one">
-            <div className='info-right-title'>DealDog</div>
+            <div className='info-right-title dealdog-gradient-color'>DealDog</div>
             <div className="info-sub-text"><a href="#">About us</a></div>
             <div className="info-sub-text"><a href="#">Contact</a></div>
             <div className="info-sub-text"><a href="#">Careers</a></div>
           </div>
 
           <div className="column-two">
-            <div className='info-right-title'>Legal</div>
+            <div className='info-right-title dealdog-gradient-color'>Legal</div>
             <div className="info-sub-text"><a href="#">Privacy Policy</a></div>
             <div className="info-sub-text"><a href="#">Terms and Conditions</a></div>
           </div>
 
           <div className="column-three">
-            <div className='info-right-title'>Socials</div>
+            <div className='info-right-title dealdog-gradient-color'>Socials</div>
             <div className="info-sub-text"><a href="#">Instagram</a></div>
             <div className="info-sub-text"><a href="#">Tiktok</a></div>
             <div className="info-sub-text"><a href="#">LinkedIn</a></div>
