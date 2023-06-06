@@ -2,136 +2,78 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import './App.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-
 function App() {
-  // Place About Section Images Here:
-  const images = [process.env.PUBLIC_URL + '/orange.png',
-                  process.env.PUBLIC_URL + '/placeholder.jpg',
-                  process.env.PUBLIC_URL + '/blue.png']
-
-  // Variables For About Section
-  const [image, setImage] = useState('');
-  const [clock, setClock] = useState('');
-  const [count, setCount] = useState(0);
-  let idx = 1;
-
-  // Initial Webserver Function
-  useEffect(() => {
-    setImage(images[0]);
-    setCount(1);
-    
-    // About Section Scroll Timer
-    const timer = setInterval(() => {
-      setImage(images[idx]);
-      ++idx;
-  
-      if (idx == images.length) {
-        idx = 0;
-      }
-  
-      console.log(idx);
-      }, 5000); // Change Time Image Is On Screen
-    
-    setClock(timer);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Go Back Button In About Section
-  function goBack() {
-    clearInterval(clock);
-    console.log("goBack before", count);
-
-    setImage(images[count]);
-    setCount(count - 1);
-
-    if (count - 1 < 0) {
-      setCount(images.length - 1);
-      console.log("goBack after", images.length - 1);
-    }
-    else {
-      console.log("goBack after", count - 1);
-    }
-  }
-
-  // Go Forward Button In About Section
-  function goForward() {
-    clearInterval(clock);
-    console.log("goForward before", count);
-
-    setImage(images[count]);
-    setCount(count + 1);
-
-    if (count + 1 == images.length) {
-      setCount(0);
-      console.log("goForward after", 0);
-    }
-    else {
-      console.log("goForward after", count + 1);
-    }
-  }
-
 
   // *Return Code*
   return (
     <>
-      <div className="top-bar">
+      <div className="top-bar background-color-black">
         <div className="top-bar-name-and-logo">
-          <img className="top-bar-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
-          <div className="top-bar-name">DealDog</div>
+          <img className="top-bar-logo" src={process.env.PUBLIC_URL + '/logo.png'}/>
+          <div className="top-bar-name text-color-white">DealDog</div>
         </div>
-        <a href='#' className="top-bar-careers">Careers</a>
+        <a href='#' className="top-bar-careers text-color-white">Careers</a>
       </div>
 
-      <div className='main-content'>
+      <div className='main-content background-color-black'>
         <div className='main-text'>
-          <div className='head-text'>
-            Lorem ipsum dolor sit amet
+          <div className='head-text dealdog-gradient-color'>
+            Your Exclusive Campus Marketplace
           </div>
-          <div className='sub-text'>
-            consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <div className='sub-text text-color-white'>
+            Whether you’re looking for new clothing, need to sublease your place for the summer, or simply want to go to a game with your friends – our platform has everything you want to buy or sell on campus.
           </div>
+
+          <div className='download-apps'>
+          <div className='ios-app'>
+            <img className="top-bar-logo" src={process.env.PUBLIC_URL + '/ios.png'} />
+          </div>
+          <div className='google-play-app'>
+            <img className="top-bar-logo" src={process.env.PUBLIC_URL + '/play.png'} />
+          </div>
+        </div>
         </div>
 
         <img className='main-iphone' src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
       </div>
 
-      <div className='banner'>
-        <img src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-        <img src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-        <img src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
+      <div className='banner dealdog-gradient-background-color'>
+        <div>
+          <span>MICHIGAN</span>
+          <span>PENN STATE</span>
+          <span>ILLONOIS</span>
+          <span>OHIO STATE</span>
+          <span>RUTGERS</span>
+          <span>PURDUE</span>
+        </div>
       </div>
 
       <div className='sections'>
         <a href="#section-one" className='section'>
-          <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-          <div className='section-head-text'>
-            Lorem
+          <img className="section-logo" src={process.env.PUBLIC_URL + '/fast.gif'} />
+          <div className='section-head-text dealdog-gradient-color'>
+            Fast
           </div>
           <div className='section-sub-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Everything you want to buy or sell at your fingertips with real-time messaging and in-app payments.
           </div>
         </a>
         <a href="#section-two" className='section'>
-          <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-          <div className='section-head-text'>
-            Lorem
+          <img className="section-logo" src={process.env.PUBLIC_URL + '/safe.gif'} />
+          <div className='section-head-text dealdog-gradient-color'>
+            Safe
           </div>
           <div className='section-sub-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Make deals with the confidence of knowing that everyone you’re talking to is a fellow student.
           </div>
         </a>
         <a href="#section-three" className='section'>
-        <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-          <div className='section-head-text'>
-            Lorem
+        <img className="section-logo" src={process.env.PUBLIC_URL + '/fun.gif'} />
+          <div className='section-head-text dealdog-gradient-color'>
+            Fun
           </div>
           <div className='section-sub-text'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Interact with other students through fun chat features and make your campus experience unforgettable.
           </div>
         </a>
       </div>
@@ -141,20 +83,18 @@ function App() {
           <img className='section-one-iphone' src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
 
           <div className='section-one-text'>
-            <div className='section-one-head-text'>Lorem ipsum dolor</div>
+            <div className='section-one-head-text dealdog-gradient-color'>Real-Time Messaging</div>
             <div className='section-one-sub-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Delivering on speed with real-time messaging so that you can easily see your unread messages and know when the recipient was last active in your conversation. Use our in-app messaging tools to transact quick and easy.
             </div>
           </div>
         </div>
 
         <div id='section-two'>
           <div className='section-two-text'>
-            <div className='section-two-head-text'>Lorem ipsum dolor</div>
+            <div className='section-two-head-text dealdog-gradient-color'>Your Safety is Our Priority</div>
             <div className='section-two-sub-text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              For your security, all users and transactions are verified with “<b>.edu</b>” email authentication to prevent fraud. A full block and report system in place. Bye-bye scammers!
             </div>
           </div>
 
@@ -165,70 +105,70 @@ function App() {
           <img className='section-three-iphone' src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
 
           <div className='section-three-text'>
-            <div className='section-three-head-text'>Lorem ipsum dolor</div>
+            <div className='section-three-head-text dealdog-gradient-color'>Connect with Your Campus Community</div>
             <div className='section-three-sub-text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              The ultimate hub for college students to connect and engage in seamless buying and selling experiences! With fun chat features and quirky dog puns, make fantastic deals while creating new friendships all in one place.
             </div>
           </div>
         </div>
       </div>
 
-      <div className='users'>
-        <div className='title-user-section'>Lorem ipsum dolor....</div>
+      <div className='users dealdog-gradient-background-color'>
+        <div className='title-user-section text-color-white'>Not convinced?</div>
+        <div className='sub-title-user-section text-color-white bold'>Here’s what current students are saying about DealDog…</div>
 
         <div className='user-sections'>
           <a className='user-section'>
             <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-            <div className='section-sub-text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div className='section-head-quote text-color-red bold'>“Easily the best student marketplace”</div>
+            <div className='user-section-sub-text'>
+              No other app makes it so easy and safe to buy and sell tickets and furniture at UMich. I wish I had this for all of my four years!!!
             </div>
+            <div className='username bold'>- Stfghhffccgf</div>
           </a>
           <a className='user-section'>
             <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-            <div className='section-sub-text'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div className='section-head-quote text-color-red bold'>“So easy to use!! No bots!”</div>
+            <div className='user-section-sub-text'>
+              It’s so nice to just sell to verified students and not a bunch of bots and scammers. The app has such an intuitive interface and it’s so easy to buy/sell.
             </div>
+            <div className='username bold'>- patrickp47833</div>
           </a>
           <a className='user-section'>
           <img className="section-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
-            <div className='section-sub-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div className='section-head-quote text-color-red bold'>“Best App For Students”</div>
+            <div className='user-section-sub-text'>
+              Finally, an app that ensures you don’t get scammed and allows you to buy and sell student tickets quickly.
             </div>
+            <div className='username bold'>- ldvoss</div>
           </a>
         </div>
       </div>
 
       <div id="video-section">
         <div className='video-text'>
-          <div className='video-head-text'>
-            Videoalkfj
+          <div className='video-head-text dealdog-gradient-color'>
+            App Demo
           </div>
           <div className='video-sub-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Curious to see what we look like on screen? Take a sneak peek into the exciting universe of DealDog with our app demo.
+          </div>
+          <div className='video-sub-text'>
+            Follow along as we guide you through the app's powerful features, highlighting how easy it is to discover, negotiate, and secure amazing deals within your campus community.
           </div>
         </div>
 
         <div className='video'></div>
       </div>
 
-      <div className='about'>
-        <div className='about-title'>About</div>
-        <div className='about-desc'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-          labore et dolore magna aliqua.
+      <div className='about background-color-black'>
+        <div className='about-title dealdog-gradient-color'>Who We Are</div>
+        <div className='about-desc text-color-white'>
+          DealDog is a premier campus marketplace <b>made by students for students.</b> But we’re so much more. We believe getting what you need should be fast, safe, and fun! We exist to connect students who need to buy or sell tickets, goods, subleases, and more on their college campus. And we want to do it in the easiest, most memorable way possible.
         </div>
 
         <div className='scroll-images'>
-          <button className="about-left-button" onClick={goBack}><FontAwesomeIcon icon={faChevronLeft} /></button>
-        
-          <img className="about-images" src={image}></img>
-
-          <button className="about-right-button" onClick={goForward}><FontAwesomeIcon icon={faChevronRight} /></button>
+          <img className="about-images" src={process.env.PUBLIC_URL + '/placeholder.jpg'}></img>
         </div>
       </div>
 
@@ -237,13 +177,13 @@ function App() {
         <div className='ready-desc'>Download the app for free today, available on the AppStore and the Play Store.</div>
         <div className='ready-apps'>
           <a href="#" className='ready-app'>
-            <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
+            <img src={process.env.PUBLIC_URL + '/ios.png'}/>
+          </a>
+          <a href="#" className='ready-app app-middle'>
+            <img src={process.env.PUBLIC_URL + '/play.png'}/>
           </a>
           <a href="#" className='ready-app'>
-            <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
-          </a>
-          <a href="#" className='ready-app'>
-            <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
+            <img src={process.env.PUBLIC_URL + '/dog-button.png'}/>
           </a>
         </div>
 
@@ -252,16 +192,17 @@ function App() {
 
       <div className='contact'>
         <div className='contact-us'>
-          <div className='contact-title'>
+          <div className='contact-title dealdog-gradient-color'>
             Slide into our DMs.
           </div>
           <div className='contact-desc'>
             Whether you’re curious about features, working with us, or just want to say hello, we’re all ears!
           </div>
           <div className='contact-desc'>
-            Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua.
+            Email us at <span className='text-color-red bold'>contactus@dealdog.college</span> or fill out the form to the right to send us a message.
+          </div>
+          <div className='contact-desc'>
+            We’ll get back to you in two wags of a dog’s tail!
           </div>
         </div>
 
@@ -302,23 +243,23 @@ function App() {
 
       <hr className='horizontial-line'></hr>
 
-      <div className='info'>
+      <div className='info text-color-white background-color-black'>
 
         <div className='info-left'>
-          <img className="info-logo" src={process.env.PUBLIC_URL + '/placeholder.jpg'} />
+          <img className="info-logo" src={process.env.PUBLIC_URL + '/logo.png'} />
 
           <div className="info-company-name">DealDog</div>
 
-          <div className="info-text">Lorem ipsum dolor sit amet</div>
+          <div className="info-text">DealDog: Campus Marketplace Mobile App</div>
 
-          <div className="info-text">Lorem ipsum dolor sit amet</div>
+          <div className="info-text">© 2021 DealDog LLC. All rights reserved.</div>
 
           <div className='info-apps'>
             <a href="#" className='info-app'>
-              <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
+              <img src={process.env.PUBLIC_URL + '/ios.png'}/>
             </a>
-            <a href="#" className='info-app'>
-              <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
+            <a href="#" className='info-app info-app-play'>
+              <img src={process.env.PUBLIC_URL + '/play.png'}/>
             </a>
           </div>
         </div>
@@ -326,26 +267,22 @@ function App() {
         <div className='info-right'>
           <div className="column-one">
             <div className='info-right-title'>DealDog</div>
-            <div className="info-sub-text">Lorem</div>
-            <div className="info-sub-text">Lorem</div>
+            <div className="info-sub-text"><a href="#">About us</a></div>
+            <div className="info-sub-text"><a href="#">Contact</a></div>
+            <div className="info-sub-text"><a href="#">Careers</a></div>
           </div>
 
           <div className="column-two">
-            <div className='info-right-title'>Lorem</div>
-            <div className="info-sub-text">Lorem</div>
-            <div className="info-sub-text">Lorem</div>
+            <div className='info-right-title'>Legal</div>
+            <div className="info-sub-text"><a href="#">Privacy Policy</a></div>
+            <div className="info-sub-text"><a href="#">Terms and Conditions</a></div>
           </div>
 
           <div className="column-three">
-            <div className='info-right-title'>Lorem</div>
-            <div className='info-socials'>
-              <a>
-                <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
-              </a>
-              <a>
-                <img src={process.env.PUBLIC_URL + '/placeholder.jpg'}/>
-              </a>
-            </div>
+            <div className='info-right-title'>Socials</div>
+            <div className="info-sub-text"><a href="#">Instagram</a></div>
+            <div className="info-sub-text"><a href="#">Tiktok</a></div>
+            <div className="info-sub-text"><a href="#">LinkedIn</a></div>
           </div>
         </div>
       </div>
