@@ -73,46 +73,46 @@
     padding-bottom: 13vmin;
 }
 
-.main-text {
-    margin-left: 17vmin;
-    width: 65vmin;
-}
+    .main-text {
+        margin-left: 17vmin;
+        width: 65vmin;
+    }
 
-.head-text {
-    font-size: 8vmin;
-    font-weight: bold;
-}
+    .head-text {
+        font-size: 8vmin;
+        font-weight: bold;
+    }
 
-.sub-text {
-    margin-top: 4vmin;
-    font-size: 2.5vmin;
-    line-height: 3.5vmin;
-}
+    .sub-text {
+        margin-top: 4vmin;
+        font-size: 2.5vmin;
+        line-height: 3.5vmin;
+    }
 
-.main-iphone {
-    z-index: 2;
-    height: 80vmin;
-    width: 40vmin;
-    border-radius: 20px;
-    margin-left: 22vmin;
-    margin-top: 7.5vmin;
-}
+    .main-iphone {
+        z-index: 2;
+        height: 80vmin;
+        width: 40vmin;
+        border-radius: 20px;
+        margin-left: 22vmin;
+        margin-top: 7.5vmin;
+    }
 
-.download-apps {
-    display: flex;
-    float: left;
-    margin-top: 4vmin;
-}
+    .download-apps {
+        display: flex;
+        float: left;
+        margin-top: 4vmin;
+    }
 
-.ios-app img, .google-play-app img {
-    height: 7.5vmin;
-    width: 24vmin;
-    border-radius: 1vmin;
-}
+    .ios-app img, .google-play-app img {
+        height: 7.5vmin;
+        width: 24vmin;
+        border-radius: 1vmin;
+    }
 
-.ios-app {
-    margin-right: 4vmin;
-}
+    .ios-app {
+        margin-right: 4vmin;
+    }
 
 /* Banner */
 .banner {
@@ -409,6 +409,11 @@
     border-radius: 1vmin;
 }
 
+.ready-app button {
+    background-color: none;
+    border: none;
+}
+
 .app-middle {
     margin-left: 15vmin;
     margin-right: 15vmin;
@@ -417,6 +422,13 @@
 .app-middle img {
     height: 7vmin;
     width: 23vmin;
+}
+
+.gift img {
+    margin-top: 5vmin;
+    width: 50%;
+    border-radius: 2vmin;
+    height: 70vmin;
 }
 
 /* Contact Us */
