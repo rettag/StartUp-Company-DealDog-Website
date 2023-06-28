@@ -1,107 +1,120 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
 import "./App.css";
+
+// Import Assets
+import Logo from "./assets/logo.png";
+import IPhone from "./assets/iphone.png";
+import AppleStore from "./assets/apple-store.png";
+import GooglePlay from "./assets/google-play.png";
+import Fast from "./assets/fast.gif";
+import Safe from "./assets/safe.gif";
+import Fun from "./assets/fun.gif";
+import Yoda from "./assets/yoda.gif";
+import DogButton from "./assets/dog-button.png";
+import ReviewDog1 from "./assets/review1.png";
+import ReviewDog2 from "./assets/review2.png";
+import ReviewDog3 from "./assets/review3.png";
+
 
 function App() {
   const [showDog, setShowDog] = useState(false);
 
   function HandleDogClick(event) {
     event.preventDefault();
-    if (showDog == false) setShowDog(true);
-    if (showDog == true) setShowDog(false);
+    if (showDog === false) setShowDog(true);
+    if (showDog === true) setShowDog(false);
   }
 
-  // *Return Code*
   return (
     <>
-      <div>
-        <div className="top-bar background-color-black">
-          <div className="top-bar-name-and-logo">
-            <img
-              className="top-bar-logo"
-              src={process.env.PUBLIC_URL + "/logo.png"}
-            />
-            <div className="top-bar-name text-color-white">DealDog</div>
+      { /* Landing Screen */ }
+      <div className="landing-screen">
+
+        { /* Landing Banner*/ }
+        <div className="landing-banner">
+          <div className="name-and-logo">
+            <img src={Logo} alt="logo" />
+            <div>DealDog</div>
           </div>
-          <a href="#" className="top-bar-careers text-color-white">
-            Careers
-          </a>
+
+          <a href="/#" className="careers">Careers</a>
         </div>
 
-        <div className="main-content background-color-black">
-          <div className="main-text">
-            <div className="head-text dealdog-gradient-color">
+        {/* Landing Content */}
+        <div className="landing-content">
+
+          <div className="landing-text">
+
+            <div className="head-text dealdog-text-color">
               Your Exclusive Campus Marketplace
             </div>
-            <div className="sub-text text-color-white">
+
+            <img className="small-landing-iphone" src={IPhone} /* Use This Cite To Make IPhone Background: https://mockuphone.com/ */ alt="iphone" /> {/* Responsive! */}
+
+            <div className="sub-text">
               Whether you’re looking for new clothing, need to sublease your
               place for the summer, or simply want to go to a game with your
               friends – our platform has everything you want to buy or sell on
               campus.
             </div>
 
-            <div className="download-apps">
-              <a href="#" className="ios-app">
-                <img
-                  className="top-bar-logo"
-                  src={process.env.PUBLIC_URL + "/ios.png"}
-                />
+            <div className="landing-download-apps">
+              <a href="/#" className="landing-ios-app">
+                <img src={AppleStore} alt="apple-store"/>
               </a>
-              <a href="#" className="google-play-app">
-                <img
-                  className="top-bar-logo"
-                  src={process.env.PUBLIC_URL + "/play.png"}
-                />
-              </a>
+              {/* Add Other Apps To Download Here! */}
             </div>
           </div>
 
-          <img
-            className="main-iphone"
-            src={process.env.PUBLIC_URL + "/placeholder.jpg"}
-          />
+          <img className="landing-iphone" src={IPhone} /* Use This Cite To Make IPhone Background: https://mockuphone.com/ */ alt="iphone" />
         </div>
       </div>
+      
 
-      <div className="banner dealdog-gradient-background-color">
+      { /* Banner */ }
+      <div className="banner">
         <div>
-          <span>MICHIGAN</span>
-          <span>PENN STATE</span>
-          <span>ILLONOIS</span>
-          <span>OHIO STATE</span>
-          <span>RUTGERS</span>
-          <span>PURDUE</span>
+          { /* Add More Schools Here! */ }
+          <span>UMICH</span>
+          <span>UT-AUSTIN</span>
+          <span>MICHIGAN STATE</span>
+          <span>AUBURN</span>
+          <span>SAN JOSE STATE</span>
+          <span>ALABAMA</span>
+          <span>OK STATE</span>
+          <span>LSU</span>
+          <span>TEXAS A&M</span>
+          <span>FLORIDA STATE</span>
+          <span>NOTRE DAME</span>
+          <span>OKLAHOMA</span>
+          <span>WVU</span>
         </div>
       </div>
+      
+      {/* Section Tabs */ }
       <div className="sections">
         <a href="#section-one" className="section">
-          <img
-            className="section-logo"
-            src={process.env.PUBLIC_URL + "/fast.gif"}
-          />
-          <div className="section-head-text dealdog-gradient-color">Fast</div>
+          <img className="section-logo" src={Fast} alt="fast"/>
+          <div className="section-head-text dealdog-text-color">Fast</div>
           <div className="section-sub-text">
             Everything you want to buy or sell at your fingertips with real-time
             messaging and in-app payments.
           </div>
         </a>
-        <a href="#section-two" className="section">
-          <img
-            className="section-logo"
-            src={process.env.PUBLIC_URL + "/safe.gif"}
-          />
-          <div className="section-head-text dealdog-gradient-color">Safe</div>
+
+        <a href="#section-two" id="middle-section" className="section">
+          <img className="section-logo" src={Safe} alt="safe"/>
+          <div className="section-head-text dealdog-text-color">Safe</div>
           <div className="section-sub-text">
             Make deals with the confidence of knowing that everyone you’re
             talking to is a fellow student.
           </div>
         </a>
+
         <a href="#section-three" className="section">
-          <img
-            className="section-logo"
-            src={process.env.PUBLIC_URL + "/fun.gif"}
-          />
-          <div className="section-head-text dealdog-gradient-color">Fun</div>
+          <img className="section-logo" src={Fun} alt="fun"/>
+          <div className="section-head-text dealdog-text-color">Fun</div>
           <div className="section-sub-text">
             Interact with other students through fun chat features and make your
             campus experience unforgettable.
@@ -109,6 +122,7 @@ function App() {
         </a>
       </div>
 
+      {/* Sections */}
       <div className="sections-desc">
         <div id="section-one">
           <img
@@ -117,7 +131,7 @@ function App() {
           />
 
           <div className="section-one-text">
-            <div className="section-one-head-text dealdog-gradient-color">
+            <div className="section-one-head-text dealdog-text-color">
               Real-Time Messaging
             </div>
             <div className="section-one-sub-text">
@@ -129,9 +143,16 @@ function App() {
           </div>
         </div>
 
+        <div className="small-section-one-sub-text">
+          Delivering on speed with real-time messaging so that you can
+          easily see your unread messages and know when the recipient was
+          last active in your conversation. Use our in-app messaging tools
+          to transact quick and easy.
+        </div>
+
         <div id="section-two">
           <div className="section-two-text">
-            <div className="section-two-head-text dealdog-gradient-color">
+            <div className="section-two-head-text dealdog-text-color">
               Your Safety is Our Priority
             </div>
             <div className="section-two-sub-text">
@@ -147,6 +168,12 @@ function App() {
           />
         </div>
 
+        <div className="small-section-two-sub-text">
+          For your security, all users and transactions are verified with “
+          <b>.edu</b>” email authentication to prevent fraud. A full block
+          and report system in place. Bye-bye scammers!
+        </div>
+
         <div id="section-three">
           <img
             className="section-three-iphone"
@@ -154,7 +181,7 @@ function App() {
           />
 
           <div className="section-three-text">
-            <div className="section-three-head-text dealdog-gradient-color">
+            <div className="section-three-head-text dealdog-text-color">
               Connect with Your Campus Community
             </div>
             <div className="section-three-sub-text">
@@ -165,9 +192,17 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className="small-section-three-sub-text">
+          The ultimate hub for college students to connect and engage in
+          seamless buying and selling experiences! With fun chat features
+          and quirky dog puns, make fantastic deals while creating new
+          friendships all in one place.
+        </div>
       </div>
 
-      <div className="users dealdog-gradient-background-color">
+      {/* Testimonials */}
+      <div className="users">
         <div className="title-user-section text-color-white">
           Not convinced?
         </div>
@@ -176,11 +211,8 @@ function App() {
         </div>
 
         <div className="user-sections">
-          <a className="user-section">
-            <img
-              className="section-logo"
-              src={process.env.PUBLIC_URL + "/placeholder.jpg"}
-            />
+          <a className="user-section left-quote">
+            <img className="section-logo" src={ReviewDog1} alt="review-dog"/>
             <div className="section-head-quote text-color-red bold">
               “Easily the best student marketplace”
             </div>
@@ -190,11 +222,8 @@ function App() {
             </div>
             <div className="username bold">- Stfghhffccgf</div>
           </a>
-          <a className="user-section">
-            <img
-              className="section-logo"
-              src={process.env.PUBLIC_URL + "/placeholder.jpg"}
-            />
+          <a className="user-section middle-quote">
+          <img className="section-logo" src={ReviewDog2} alt="review-dog"/>
             <div className="section-head-quote text-color-red bold">
               “So easy to use!! No bots!”
             </div>
@@ -205,11 +234,8 @@ function App() {
             </div>
             <div className="username bold">- patrickp47833</div>
           </a>
-          <a className="user-section">
-            <img
-              className="section-logo"
-              src={process.env.PUBLIC_URL + "/placeholder.jpg"}
-            />
+          <a className="user-section right-quote">
+            <img className="section-logo" src={ReviewDog3} alt="review-dog"/>
             <div className="section-head-quote text-color-red bold">
               “Best App For Students”
             </div>
@@ -221,10 +247,11 @@ function App() {
           </a>
         </div>
       </div>
-
+      
+      {/*
       <div id="video-section">
         <div className="video-text">
-          <div className="video-head-text dealdog-gradient-color">App Demo</div>
+          <div className="video-head-text dealdog-text-color">App Demo</div>
           <div className="video-sub-text">
             Curious to see what we look like on screen? Take a sneak peek into
             the exciting universe of DealDog with our app demo.
@@ -238,12 +265,12 @@ function App() {
 
         <div className="video"></div>
       </div>
+      */}
 
       <div className="about background-color-black">
-        <div className="about-title dealdog-gradient-color">Who We Are</div>
+        <div className="about-title dealdog-text-color">Who We Are</div>
         <div className="about-desc text-color-white">
-          DealDog is a premier campus marketplace{" "}
-          <b>made by students for students.</b> But we’re so much more. We
+          DealDog is a premier campus marketplace <b>made by students for students.</b> But we’re so much more. We
           believe getting what you need should be fast, safe, and fun! We exist
           to connect students who need to buy or sell tickets, goods, subleases,
           and more on their college campus. And we want to do it in the easiest,
@@ -285,7 +312,7 @@ function App() {
       </div>
 
       <div className="ready">
-        <div className="ready-title dealdog-gradient-color">
+        <div className="ready-title dealdog-text-color">
           Ready to sniff out a deal?
         </div>
         <div className="ready-desc">
@@ -293,31 +320,28 @@ function App() {
           Play Store.
         </div>
         <div className="ready-apps">
-          <a href="#" className="ready-app">
-            <img src={process.env.PUBLIC_URL + "/ios.png"} />
+          <a href="/#" className="ready-app">
+            <img src={AppleStore} alt="apple-store"/>
           </a>
-          <a href="#" className="ready-app app-middle">
-            <img src={process.env.PUBLIC_URL + "/play.png"} />
-          </a>
-          <a href="#" className="ready-app">
+          <a href="/#" className="ready-app">
             <button onClick={HandleDogClick}>
-              <img src={process.env.PUBLIC_URL + "/dog-button.png"} />
+              <img src={DogButton} alt="gift" />
             </button>
           </a>
         </div>
 
         {showDog ? (
-          <div className="gift">
-            <img src={process.env.PUBLIC_URL + "/yoda.gif"} />
-          </div>
+        <div className="gift">
+          <img src={Yoda} alt="yoda"/>
+        </div>
         ) : (
-          <div className="gift"></div>
+        <div className="gift"></div>
         )}
       </div>
 
       <div className="contact">
         <div className="contact-us">
-          <div className="contact-title dealdog-gradient-color">
+          <div className="contact-title dealdog-text-color">
             Slide into our DMs.
           </div>
           <div className="contact-desc">
@@ -326,7 +350,7 @@ function App() {
           </div>
           <div className="contact-desc">
             Email us at{" "}
-            <span className="text-color-red bold">
+            <span className="at-email">
               contactus@dealdog.college
             </span>{" "}
             or fill out the form to the right to send us a message.
@@ -374,12 +398,9 @@ function App() {
 
       <div className="info text-color-white background-color-black">
         <div className="info-left">
-          <img
-            className="info-logo"
-            src={process.env.PUBLIC_URL + "/logo.png"}
-          />
+          <img className="info-logo" src={Logo} alt="logo"/>
 
-          <div className="info-company-name dealdog-gradient-color">
+          <div className="info-company-name dealdog-text-color">
             DealDog App
           </div>
 
@@ -392,56 +413,73 @@ function App() {
           </div>
 
           <div className="info-apps">
-            <a href="#" className="info-app">
-              <img src={process.env.PUBLIC_URL + "/ios.png"} />
-            </a>
-            <a href="#" className="info-app info-app-play">
-              <img src={process.env.PUBLIC_URL + "/play.png"} />
+            <a href="/#" className="info-app">
+              <img src={AppleStore} alt="apple-store"/>
             </a>
           </div>
         </div>
 
         <div className="info-right">
           <div className="column-one">
-            <div className="info-right-title dealdog-gradient-color">
+            <div className="info-right-title dealdog-text-color">
               DealDog
             </div>
             <div className="info-sub-text">
-              <a href="#">About us</a>
+              <a href="/#">About us</a>
             </div>
             <div className="info-sub-text">
-              <a href="#">Contact</a>
+              <a href="/#">Contact</a>
             </div>
             <div className="info-sub-text">
-              <a href="#">Careers</a>
+              <a href="/#">Careers</a>
             </div>
           </div>
 
-          <div className="column-two">
-            <div className="info-right-title dealdog-gradient-color">Legal</div>
+          <div className="column-two middle-info">
+            <div className="info-right-title dealdog-text-color">Legal</div>
             <div className="info-sub-text">
-              <a href="#">Privacy Policy</a>
+              <a href="/#">Privacy Policy</a>
             </div>
             <div className="info-sub-text">
-              <a href="#">Terms and Conditions</a>
+              <a href="/#">Terms and Conditions</a>
             </div>
           </div>
 
           <div className="column-three">
-            <div className="info-right-title dealdog-gradient-color">
+            <div className="info-right-title dealdog-text-color">
               Socials
             </div>
             <div className="info-sub-text">
-              <a href="#">Instagram</a>
+              <a href="/#">Instagram</a>
             </div>
             <div className="info-sub-text">
-              <a href="#">Tiktok</a>
+              <a href="/#">Tiktok</a>
             </div>
             <div className="info-sub-text">
-              <a href="#">LinkedIn</a>
+              <a href="/#">LinkedIn</a>
             </div>
           </div>
         </div>
+        
+        {/* Responsive! */}
+        <div className="small-info">
+          <img className="info-logo" src={Logo} alt="logo"/>
+
+          <div className="info-company-name dealdog-text-color">
+            DealDog App
+          </div>
+
+          <div className="info-text">
+            © 2021 DealDog LLC. All rights reserved.
+          </div>
+
+          <div className="info-apps">
+            <a href="/#" className="info-app">
+              <img src={AppleStore} alt="apple-store"/>
+            </a>
+          </div>
+        </div>
+
       </div>
     </>
   );

@@ -1,127 +1,210 @@
-/* Gradient Colored Text */
-.dealdog-gradient-color {
+/* Fonts */
+@font-face {
+  font-family: 'AvenirBlack';
+  src: url('./fonts/AvenirBlack.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirBook';
+  src: url('./fonts/AvenirBook.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('./fonts/AvenirNext.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AvenirRoman';
+  src: url('./fonts/AvenirRoman.otf') format('opentype');
+}
+
+/* Global CSS Variables */
+:root {
+    /* Text Colors */
+    --black-text: #000000;
+    --white-text: #FFFFFF;
+    --red-text: rgb(255, 102, 115);
+    --orange-text: rgb(237, 148, 66);
+
+    /* Background Colors */
+    --black-background: #181818;
+    --tan-background: #FDF5EA;
+    --white-background: #FFFFFF;
+    --dealdog-background: linear-gradient(to right, rgb(237, 148, 66), rgb(255, 102, 115));   
+    --light-dealdog-background: linear-gradient(to right, rgb(237, 148, 66, 0.6), rgb(255, 102, 115, 0.65));
+}
+
+/* DealDog Gradient Colored Text */
+.dealdog-text-color {
     background: linear-gradient(to right, rgb(237, 148, 66) 30%, rgb(255, 102, 115) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Gradient Colored Background Transparent */
-.dealdog-gradient-transparent-background-color {
-    background: linear-gradient(to right, rgb(237, 148, 66) 0%, rgb(255, 102, 115) 100%);
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    scroll-behavior: smooth;
+    letter-spacing: 0.10vmin;
 }
 
-
-/* Gradient Colored Background */
-.dealdog-gradient-background-color {
-    background: linear-gradient(to right, rgb(237, 148, 66), rgb(255 102 115));
+body {
+    margin: 0px;
 }
 
-/* Set Hues */
-.text-color-white {
-    color: white;
+/* Landing Screen */
+.landing-screen {
+    background: var(--black-background);
+    width: 100%;
+    height: 100vh;
 }
 
-.text-color-red {
-    color: rgb(255, 102, 115);
-}
-
-.background-color-black {
-    background-color: #181818;
-}
-
-/* Bold */
-.bold {
-    font-weight: bold;
-}
-
-/* Top Navigation */
-.top-bar {
+/* Landing Banner */
+.landing-banner {
+    font-family: 'AvenirBlack';
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 10vmin;
-    font-size: 3.5vmin;
+    justify-content: space-between;
+    height: 10%;
 }
 
-.top-bar-logo {
-    height: 9vmin; width: 9vmin; /* Set Logo Size */
+.name-and-logo {
+    display: flex;
+    align-items: center;
+}
+
+.name-and-logo img {
+    height: 9vmin; 
+    width: 9vmin;
     margin: 0vmin 1vmin;
 }
 
-.top-bar-name-and-logo {
-    display: flex;
-    align-items: center;
+.name-and-logo div {
+    color: var(--white-text);
+    font-size: 2.6vmin;
+    font-weight: bold;
 }
 
-.top-bar-careers {
+.careers {
     margin-right: 10vmin;
     font-size: 2.2vmin;
     text-decoration: none;
+    color: var(--white-text);
 }
 
-.top-bar-careers:hover {
+#careers:hover {
     color: lightgray;
 }
 
-/* Main Content */
-.main-content {
+/* Landing Content */
+.landing-content {
+    height: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 82vmin;
-    padding-bottom: 13vmin;
+    justify-content: space-evenly;
 }
 
-    .main-text {
-        margin-left: 17vmin;
-        width: 65vmin;
-    }
+.landing-text {
+    width: 65vmin;
+    margin-left: 3vmin;
+}
 
-    .head-text {
-        font-size: 8vmin;
-        font-weight: bold;
-    }
+.landing-text .head-text {
+    font-family: 'AvenirBlack';
+    font-size: 8vmin;
+    font-weight: bold;
+}
 
-    .sub-text {
-        margin-top: 4vmin;
-        font-size: 2.5vmin;
-        line-height: 3.5vmin;
-    }
+.landing-text .sub-text {
+    font-family: 'AvenirRoman';
+    color: var(--white-text);
+    margin-top: 4vmin;
+    font-size: 2.6vmin;
+    line-height: 4vmin;
+}
 
-    .main-iphone {
-        z-index: 2;
-        height: 80vmin;
-        width: 40vmin;
-        border-radius: 20px;
-        margin-left: 22vmin;
-        margin-top: 7.5vmin;
-    }
+.landing-iphone {
+    height: 90vmin;
+}
 
-    .download-apps {
+.landing-download-apps {
+    display: flex;
+    float: left;
+    margin-top: 4vmin;
+}
+
+.landing-ios-app img {
+    height: 7.5vmin;
+    width: 24vmin;
+    border-radius: 1vmin;
+}
+
+/* Responsive Landing Screen */
+.small-landing-iphone {
+    display: none;
+}
+
+@media(max-width: 820px) {
+    .careers, .landing-iphone {
+        display: none;
+    }
+    .small-landing-iphone {
+        display: block;
+        height: 45vh;
+    }
+    .landing-screen {
+        height: 100%;
+        padding-bottom: 3vh;
+    }
+    .landing-content {
         display: flex;
-        float: left;
-        margin-top: 4vmin;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0vmin;
+    }
+    .landing-text {
+        margin-left: 0vmin;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 32vh;
+    }
+    .landing-text .head-text {
+        font-size: 4.5vh;
+    }
+    .landing-text .sub-text {
+        font-size: 1.8vh;
+        line-height: 2.4vh;
+    }
+    .landing-ios-app img {
+        height: 5vh;
+        width: 15vh;
+    }
+    .name-and-logo img {
+        height: 6vh;
+        width: 6vh;
+        margin-right: -0.3vh;
+    }
+    .name-and-logo div {
+        font-size: 1.8vh;
     }
 
-    .ios-app img, .google-play-app img {
-        height: 7.5vmin;
-        width: 24vmin;
-        border-radius: 1vmin;
-    }
-
-    .ios-app {
-        margin-right: 4vmin;
-    }
+}
 
 /* Banner */
 .banner {
+    font-family: 'AvenirBlack';
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 10vmin;
-    overflow:hidden;
+    padding: 2.5vmin;
+    overflow: hidden;
     white-space: nowrap;
+    background: var(--dealdog-background);
 }
 
 .banner span {
@@ -129,7 +212,7 @@
     display: inline-block;
     font-size: 5vmin;
     animation-delay: 4s;
-    color: white;
+    color: rgba(255, 255, 255, 0.658);
     font-weight: bold;
 }
 
@@ -155,12 +238,17 @@
 }
 
 .section {
-    height: 50vmin;
-    width: 35vmin;
     border-radius: 30px;
     text-align: center;
     text-decoration: none;
     color: black;
+    padding: 2vmin;
+    width: 32vmin;
+}
+
+#middle-section {
+    margin-left: 6vmin;
+    margin-right: 6vmin;
 }
 
 .section:hover {
@@ -174,15 +262,29 @@
 }
 
 .section-head-text {
+    font-family: 'AvenirBlack';
     font-size: 4vmin;
     font-weight: bold;
     margin-top: 2vmin;
 }
 
 .section-sub-text {
+    font-family: 'AvenirBook';
     font-size: 2.7vmin;
     margin-top: 2vmin;
     line-height: 4vmin;
+}
+
+@media(max-width: 820px) {
+    .sections {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section {
+        width: 55vmin;
+    }
 }
 
 /* Sections */
@@ -201,10 +303,11 @@
 
 .section-one-head-text, .section-two-head-text, .section-three-head-text {
     font-size: 4vmin;
-    font-weight: bold;
+    font-family: 'AvenirBlack';
 }
 
 .section-one-sub-text, .section-two-sub-text, .section-three-sub-text {
+    font-family: 'AvenirBook';
     margin-top: 2vmin;
     font-size: 2.7vmin;
     line-height: 4vmin;
@@ -216,16 +319,48 @@
     border-radius: 20px;
 }
 
-/* User Sections */
+.small-section-one-sub-text, .small-section-two-sub-text, .small-section-three-sub-text {
+    display: none;
+}
+
+@media(max-width: 820px) {
+    .section-one-sub-text, .section-two-sub-text, .section-three-sub-text {
+        display: none;
+    }
+
+    .small-section-one-sub-text, .small-section-two-sub-text, .small-section-three-sub-text {
+        display: block;
+        font-family: 'AvenirBook';
+        line-height: 4vmin;
+        width: 65vmin;
+        margin: auto auto;
+        font-size: 2.7vmin;
+        padding-bottom: 5vmin;
+    }
+
+    .section-one-head-text, .section-two-head-text, .section-three-head-text {
+        font-size: 2.5vh;
+        font-family: 'AvenirBlack';
+        margin: 2vh;
+    }
+
+    #section-one, #section-two, #section-three {
+        justify-content: center;
+        padding-bottom: 4vmin;
+    }
+}
+
+/* Testimonials */
 .users {
     text-align: center;
+    background: var(--light-dealdog-background);
 }
 
 .user-sections {
     display: flex;
     justify-content: space-evenly;
-    padding: 10vmin;
-    padding-top: 0px;
+    padding-bottom: 10vmin;
+    margin-top: 5vmin;
 }
 
 .user-section {
@@ -234,15 +369,13 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    height: 50vmin;
     width: 35vmin;
     border-radius: 30px;
     text-decoration: none;
     color: black;
     background-color: white;
     padding: 3vmin;
-    margin-top: 5vmin;
-    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .user-section img {
@@ -254,28 +387,52 @@
 }
 
 .title-user-section {
+    font-family: 'AvenirBlack';
     font-size: 4vmin;
-    font-weight: bold;
     padding-top: 6vmin;
+    color: var(--white-text);
 }
 
 .sub-title-user-section {
+    font-family: 'AvenirBlack';
     margin-top: 1vmin;
     font-style: italic;
     font-size: 3vmin;
+    color: var(--white-text);
 }
 
 .user-section-sub-text {
+    font-family: 'AvenirRoman';
     margin: 1vmin;
     font-size: 2.5vmin;
 }
 
 .section-head-quote {
+    font-family: 'AvenirBlack';
+    color: var(--red-text);
     font-size: 2.5vmin;
 }
 
+.middle-quote {
+    margin-left: 5vmin;
+    margin-right: 5vmin;
+}
+
+.left-quote {
+    margin-left: 2vmin;
+}
+
+.right-quote {
+    margin-right: 2vmin;
+}
+
 .username {
+    font-family: 'AvenirBlack';
     font-size: 2vmin;
+}
+
+@media(max-width: 820px) {
+    
 }
 
 /* Video Section */
@@ -313,10 +470,12 @@
 
 /* About Section */
 .about {
+    background-color: var(--black-background);
     padding-bottom: 8vmin;
 }
 
 .about-title {
+    font-family: "AvenirBlack";
     padding-top: 6vmin;
     text-align: center;
     font-size: 5vmin;
@@ -324,6 +483,8 @@
 }
 
 .about-desc {
+    color: var(--white-text);
+    font-family: "AvenirBook";
     font-size: 2.7vmin;
     margin-top: 3vmin;
     text-align: center;
@@ -387,12 +548,14 @@
 }
 
 .ready-title {
+    font-family: "AvenirBlack";
     padding-top: 4vmin;
     font-size: 4vmin;
     font-weight: bold;
 }
 
 .ready-desc {
+    font-family: "AvenirBook";
     margin-top: 3vmin;
     font-size: 2.7vmin;
 }
@@ -404,8 +567,8 @@
 }
 
 .ready-app img {
-    height: 7vmin;
-    width: 20vmin;
+    height: 9vmin;
+    width: 25vmin;
     border-radius: 1vmin;
 }
 
@@ -440,25 +603,41 @@
 
     padding-top: 8vmin;
     padding-bottom: 15vmin;
+    margin-left: 3vmin;
+    margin-right: 3vmin;
 }
 
 .contact-us {
-    width: 60vmin;
+    width: 70vmin;
+}
+
+.put-contact-info {
+    width: 70vmin;
+    margin-left: 3vmin;
 }
 
 .contact-title {
     font-size: 5vmin;
     font-weight: bold;
+    text-align: center;
+    font-family: "AvenirBlack";
 }
 
 .contact-desc {
+    font-family: "AvenirBook";
     font-size: 2.7vmin;
     margin-top: 4vmin;
 }
 
 .first-and-last-input {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+#email input {
+    height: 5vmin;
 }
 
 #first-name {
@@ -466,8 +645,8 @@
 }
 
 #first-name input, #last-name input {
-    height: 3.3vmin;
-    width: 23vmin;
+    height: 5vmin;
+    width: 30vmin;
 }
 
 .contact-info {
@@ -475,7 +654,7 @@
 }
 
 .contact-info div {
-    font-size: 1.7vmin;
+    font-size: 2vmin;
     margin-bottom: 0.4vmin;
 }
 
@@ -484,7 +663,12 @@
     border: none;
     border-radius: 0.8vmin;
     height: 3.3vmin;
-    width: 49.5555999vmin;
+    width: 70vmin;
+}
+
+.at-email {
+    color: var(--red-text);
+    font-weight: bold;
 }
 
 #message input {
@@ -493,6 +677,8 @@
 }
 
 .message-form {
+    font-family: 'AvenirBook';
+    width: 70vmin;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -503,8 +689,8 @@
 }
 
 .send input {
-    height: 5vmin;
-    width: 49.5555999vmin;
+    height: 7vmin;
+    width: 70vmin;
     border-radius: 1vmin;
     border: none;
     color: white;
@@ -513,22 +699,37 @@
     background: linear-gradient(to right, rgb(237, 148, 66) 0%, rgb(255, 102, 115) 100%);
 }
 
+@media(max-width: 820px) {
+    .contact {
+        flex-direction: column;
+    }
+    .put-contact-info {
+        margin-top: 5vmin;
+    }
+}
+
 /* Horizontial Line */
 .horizontial-line {
-    height: 0.25vmin;
-    background-color: gray;
-    color: gray;
+    height: 0.6vmin;
+    background: var(--dealdog-background);
     padding: 0px, 0px;
     margin: 0 0;
 }
 
 /* Company Info */
 .info {
+    background-color: var(--black-background);
+    font-family: "AvenirBlack";
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding-top: 7vmin;
     padding-bottom: 7vmin;
+}
+
+.info-left {
+    margin-left: 5vmin;
+    margin-right: 8vmin;
 }
 
 .info-logo {
@@ -537,13 +738,16 @@
 }
 
 .info-company-name {
-    margin-top: 2vmin;
+    margin-top: -2vmin;
     font-size: 2.8vmin;
     font-weight: bold;
 }
 
 .info-text {
+    color: var(--white-text);
     margin-top: 2vmin;
+    font-family: "AvenirRoman";
+    font-size: 2vmin;
 }
 
 .info-apps {
@@ -564,8 +768,9 @@
 }
 
 .info-right {
+    margin-right: 5vmin;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .info-right-title {
@@ -573,8 +778,9 @@
     font-weight: bold;
 }
 
-.info-right div {
-    margin-right: 7vmin;
+.middle-info {
+    margin-left: 8vmin;
+    margin-right: 8vmin;
 }
 
 .column-three {
@@ -593,4 +799,41 @@
 .info-sub-text a {
     text-decoration: none;
     color: white;
+}
+
+.small-info {
+    display: none;
+}
+
+@media(max-width: 820px) {
+    .info {
+        flex-direction: column;
+    }
+    .info-right {
+        text-align: center;
+        flex-direction: column;
+        margin-right: 0vmin;
+    }
+    .info-left {
+        text-align: center;
+        display: none;
+    }
+    .middle-info {
+        margin-left: 0vmin;
+        margin-right: 0vmin;
+    }
+    .small-info {
+        text-align: center;
+        display: block;
+    }
+    .info-apps {
+        margin-top: 2vmin;
+        margin-right: 0vmin;
+        margin-left: 0vmin;
+        display: flex;
+        justify-content: center;
+    }
+    .info-app img {
+        margin: 0vmin 0vmin;
+    }
 }
